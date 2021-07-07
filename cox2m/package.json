@@ -13,6 +13,8 @@
   "dependencies": {
     "@leverege/base62-util": "^1.1.0",
     "axios": "^0.21.1",
-    "console.table": "^0.10.0"
+    "console.table": "^0.10.0",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^10.0.0"
   }
 }
