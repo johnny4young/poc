@@ -1,4 +1,4 @@
-package golang_webview
+package main
 
 import "github.com/webview/webview"
 
