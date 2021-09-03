@@ -146,3 +146,8 @@ Cargo.lock
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+*.xlsx
+*.xls
+cox2m/DL970_1900 OBD_12.29.20.csv
+cox2m/trackersToProvision.csv
