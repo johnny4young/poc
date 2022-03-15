@@ -18,3 +18,20 @@ switch ( 'a' ) {
     break;
   default: // invalid format spec!
 }
+
+let condition = true;
+setTimeout(() => {
+  condition = false;
+}, 0);
+
+while (condition) {
+  console.log('cuantas veces me ejecuto')
+}
+
+
+
+console1.log(name1());
+console2.log(name2());
+
+function name1() {}
+var name2 = function() {}
