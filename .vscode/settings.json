@@ -1,6 +1,7 @@
 {
   "conventionalCommits.scopes": [
     "cox2m",
-    "golang"
+    "golang",
+    "javascript"
   ]
 }
