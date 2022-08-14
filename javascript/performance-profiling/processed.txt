@@ -1,0 +1,98 @@
+Statistical profiling result from isolate-0x138008000-82599-v8.log, (8450 ticks, 3 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+     10    0.1%          /usr/lib/system/libsystem_c.dylib
+      7    0.1%          /usr/lib/system/libsystem_pthread.dylib
+      6    0.1%          /usr/lib/libc++.1.dylib
+      5    0.1%          /usr/lib/system/libsystem_malloc.dylib
+      2    0.0%          /usr/lib/system/libsystem_platform.dylib
+      1    0.0%          /usr/lib/system/libsystem_kernel.dylib
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      2    0.0%    0.0%  Function: ^processPromiseRejections node:internal/process/promises:211:34
+      1    0.0%    0.0%  LazyCompile: *resolve node:path:1091:10
+      1    0.0%    0.0%  Function: ^writeOrBuffer node:internal/streams/writable:365:23
+      1    0.0%    0.0%  Function: ^ReadableState node:internal/streams/readable:78:23
+      1    0.0%    0.0%  Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+
+ [C++]:
+   ticks  total  nonlib   name
+   8277   98.0%   98.3%  t node::fs::Stat(v8::FunctionCallbackInfo<v8::Value> const&)
+     52    0.6%    0.6%  T node::contextify::ContextifyContext::CompileFunction(v8::FunctionCallbackInfo<v8::Value> const&)
+     14    0.2%    0.2%  T _mach_port_insert_member
+     12    0.1%    0.1%  t node::fs::Read(v8::FunctionCallbackInfo<v8::Value> const&)
+     11    0.1%    0.1%  T __kernelrpc_mach_port_move_member_trap
+     10    0.1%    0.1%  T _posix_spawnattr_setflags
+      9    0.1%    0.1%  T _sigprocmask
+      4    0.0%    0.0%  t node::fs::InternalModuleStat(v8::FunctionCallbackInfo<v8::Value> const&)
+      4    0.0%    0.0%  t node::fs::InternalModuleReadJSON(v8::FunctionCallbackInfo<v8::Value> const&)
+      3    0.0%    0.0%  t std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)
+      3    0.0%    0.0%  T _mach_port_insert_right
+      2    0.0%    0.0%  t std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long)
+      2    0.0%    0.0%  t node::fs::Open(v8::FunctionCallbackInfo<v8::Value> const&)
+      2    0.0%    0.0%  t __os_nospin_lock_unlock_slow
+      1    0.0%    0.0%  t __os_once_gate_wait
+      1    0.0%    0.0%  t ___pfz_setup
+      1    0.0%    0.0%  T node::fs::Close(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  T __kernelrpc_mach_port_get_refs
+      1    0.0%    0.0%  T ___bsdthread_terminate
+
+ [Summary]:
+   ticks  total  nonlib   name
+      6    0.1%    0.1%  JavaScript
+   8410   99.5%   99.9%  C++
+     27    0.3%    0.3%  GC
+     31    0.4%          Shared libraries
+      3    0.0%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+   8267   98.8%   97.8%  t node::fs::Stat(v8::FunctionCallbackInfo<v8::Value> const&)
+     52    0.6%    0.6%  T node::contextify::ContextifyContext::CompileFunction(v8::FunctionCallbackInfo<v8::Value> const&)
+     12    0.1%    0.1%  t node::fs::Read(v8::FunctionCallbackInfo<v8::Value> const&)
+      9    0.1%    0.1%  T __kernelrpc_mach_port_move_member_trap
+      5    0.1%    0.1%  T _sigprocmask
+      4    0.0%    0.0%  t node::fs::InternalModuleStat(v8::FunctionCallbackInfo<v8::Value> const&)
+      4    0.0%    0.0%  t node::fs::InternalModuleReadJSON(v8::FunctionCallbackInfo<v8::Value> const&)
+      3    0.0%    0.0%  t std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)
+      2    0.0%    0.0%  t std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long)
+      2    0.0%    0.0%  t node::fs::Open(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  t __os_nospin_lock_unlock_slow
+      1    0.0%    0.0%  t ___pfz_setup
+      1    0.0%    0.0%  T node::fs::Close(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  T __kernelrpc_mach_port_get_refs
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   8277   98.0%  t node::fs::Stat(v8::FunctionCallbackInfo<v8::Value> const&)
+   7837   94.7%    Function: ^pbkdf2Sync node:internal/crypto/pbkdf2:68:20
+   7741   98.8%      Function: ^<anonymous> /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/server.js:29:22
+   7580   97.9%        Function: ^preHandlerCallback /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:114:29
+   7452   98.3%          Function: ^preValidationCallback /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:81:32
+   7323   98.3%            Function: ^handler /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:63:18
+    129    1.7%            LazyCompile: ~handler /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:63:18
+    128    1.7%          LazyCompile: ~preValidationCallback /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:81:32
+    128  100.0%            LazyCompile: ~handler /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:63:18
+    161    2.1%        LazyCompile: ~preHandlerCallback /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:114:29
+    161  100.0%          LazyCompile: ~preValidationCallback /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:81:32
+    161  100.0%            LazyCompile: ~handler /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:63:18
+     96    1.2%      LazyCompile: ~<anonymous> /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/server.js:29:22
+     96  100.0%        LazyCompile: ~preHandlerCallback /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:114:29
+     96  100.0%          LazyCompile: ~preValidationCallback /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:81:32
+     96  100.0%            LazyCompile: ~handler /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:63:18
+    314    3.8%    LazyCompile: ~pbkdf2Sync node:internal/crypto/pbkdf2:68:20
+    272   86.6%      LazyCompile: ~<anonymous> /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/server.js:29:22
+    272  100.0%        LazyCompile: ~preHandlerCallback /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:114:29
+    272  100.0%          LazyCompile: ~preValidationCallback /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:81:32
+    272  100.0%            LazyCompile: ~handler /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:63:18
+     42   13.4%      LazyCompile: ~<anonymous> /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/server.js:11:25
+     42  100.0%        LazyCompile: ~preHandlerCallback /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:114:29
+     42  100.0%          LazyCompile: ~preValidationCallback /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:81:32
+     42  100.0%            LazyCompile: ~handler /Users/Johnny.Young/Personal/github/poc/javascript/performance-profiling/node_modules/fastify/lib/handleRequest.js:63:18
+

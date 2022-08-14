@@ -37,13 +37,14 @@ fastify.get('/auth', async (request, reply) => {
   }
 
   const { salt, hash } = users[username];
-  const encryptHash = crypto.pbkdf2Sync(password, salt, 10000, 512, 'sha512');
 
-  if (crypto.timingSafeEqual(hash, encryptHash)) {
-    reply.statusCode = 200;
-  } else {
-    reply.statusCode =401;
-  }
+  crypto.pbkdf2(password, salt, 10000, 512, 'sha512', (err, hashT)=>{
+    if(hash.toString() === hashT.toString()){
+      return reply.statusCode = 200;
+    }
+    return reply.statusCode = 400;
+  });
+
 });
 
 // Run the server!
