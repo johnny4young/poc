@@ -2,7 +2,9 @@ Test
 
 run the program with the following command:
 ```
-node --prof server.js
+node --prof server.js 
+or
+node --prof server_improved.js
 ```
 then in a terminal, run the following command:
 ```
