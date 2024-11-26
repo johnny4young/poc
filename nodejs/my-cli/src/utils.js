@@ -15,7 +15,7 @@ import {
 // Set the API URL
 const API = "http://localhost:3000";
 // Set the categories
-const categories = ["confectionery", "electronics"];
+export const categories = ["confectionery", "electronics"];
 
 // Log the usage of the command to the console
 export const log = (msg) => {
