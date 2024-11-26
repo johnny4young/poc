@@ -1,4 +1,4 @@
-.npmrc 
+.npmrc
 # Logs
 logs
 *.log
@@ -152,4 +152,7 @@ Cargo.lock
 cox2m/DL970_1900 OBD_12.29.20.csv
 cox2m/trackersToProvision.csv
 .idea/poc.iml
+.idea/git_toolbox_blame.xml
+.idea/workspace.xml
+.idea/git_toolbox_prj.xml
 .DS_Store
