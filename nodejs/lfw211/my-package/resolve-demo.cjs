@@ -40,3 +40,73 @@ console.log(
     '=>',
     pathToFileURL(require.resolve('pino')).toString()
 )
+
+
+// assign data
+Buffer.concat(data)
+Array.from(Array(3)).fill(__filename)
+
+
+const { readFile } = require('fs').promises
+const files = [__filename, 'not a file', __filename]
+const print = (results) => {
+  results
+    .filter(({status}) => status === 'rejected')
+    .forEach(({reason}) => console.error(reason))
+  const data = results
+    .filter(({status}) => status === 'fulfilled')
+    .map(({value}) => value)
+  const contents = Buffer.concat(data)
+  console.log(contents.toString())
+}
+
+const readers = files.map((file) => readFile(file))
+
+Promise.allSettled(readers)
+  .then(print)
+  .catch(console.error)
+
+
+
+const { readFile } = require('fs').promises
+
+const print = (contents) => {
+    console.log(contents.toString())
+}
+
+const files = Array.from(Array(3)).fill(__filename)
+
+async function run () {
+    const data = []
+    for (const file of files) {
+        data.push(await readFile(file))
+    }
+    print(Buffer.concat(data))
+}
+
+run().catch(console.error)
+
+
+const { readFile } = require('fs').promises
+const files = [__filename, 'foo', __filename]
+const print = (contents) => {
+    console.log(contents.toString())
+}
+
+async function run () {
+    const readers = files.map((file) => readFile(file))
+    const results = await Promise.allSettled(readers)
+
+    results
+        .filter(({status}) => status === 'rejected')
+        .forEach(({reason}) => console.error(reason))
+
+    const data = results
+        .filter(({status}) => status === 'fulfilled')
+        .map(({value}) => value)
+
+    print(Buffer.concat(data))
+}
+
+run().catch(console.error)
+
