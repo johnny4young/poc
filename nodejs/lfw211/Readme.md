@@ -45,3 +45,13 @@ Wolf.prototype.howl = function () {
 }
 ```
 
+
+
+## useful commands
+```bash
+node -e "fs.appendFileSync(path.join(os.homedir(), '.npmrc'), '\npackage-lock=false\n')"
+node -p "fs.readdirSync('.').join('\t')"
+node -e "fs.rmSync('node_modules', { recursive: true})"
+echo "import uprev from './index.js'; console.log(uprev('hello'))" | node --input-type=module
+npm ls --depth=200 # list all dependencies with depth 200
+```
