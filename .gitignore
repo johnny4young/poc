@@ -155,4 +155,5 @@ cox2m/trackersToProvision.csv
 .idea/git_toolbox_blame.xml
 .idea/workspace.xml
 .idea/git_toolbox_prj.xml
+.idea/*
 .DS_Store
